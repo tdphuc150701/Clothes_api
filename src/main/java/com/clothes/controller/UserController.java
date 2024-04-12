@@ -14,8 +14,6 @@ import com.clothes.entity.UserEntity;
 import com.clothes.repository.RoleRepository;
 import com.clothes.repository.UserRepository;
 import com.clothes.service.JwtService;
-import com.clothes.service.UserService;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -42,15 +40,14 @@ public class UserController {
 	private PasswordEncoder passwordEncoder;
 	@Autowired
 	private JwtService jwtService;
-	@Autowired
-	private UserService userService;
+
 	@Autowired
 	private JwtTokenUtil jwtToken;
 
-//	@PostConstruct
-//	public void initRoleAndUser() {
-//		userService.initRoleAndUser();
-//	}
+	// @PostConstruct
+	// public void initRoleAndUser() {
+	// userService.initRoleAndUser();
+	// }
 
 	@PostMapping({ "/auth/register" })
 	ResponseEntity<?> register(@RequestBody UserDTO userDTO) {
