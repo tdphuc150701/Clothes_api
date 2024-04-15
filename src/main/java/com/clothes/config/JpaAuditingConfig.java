@@ -1,5 +1,7 @@
 package com.clothes.config;
 
+import java.util.Optional;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.domain.AuditorAware;
@@ -19,12 +21,12 @@ public class JpaAuditingConfig {
 	public static class AuditorAwareImpl implements AuditorAware<String> {
 
 		@Override
-		public String getCurrentAuditor() {
+		public Optional<String> getCurrentAuditor() {
 			Authentication authencation = SecurityContextHolder.getContext().getAuthentication();
 			if (authencation == null || !authencation.isAuthenticated()) {
 				return null;
 			}
-			return authencation.getName();
+			return Optional.of(authencation.getName());
 		}
 
 	}

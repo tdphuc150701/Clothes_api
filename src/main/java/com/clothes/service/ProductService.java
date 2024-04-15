@@ -75,7 +75,7 @@ public class ProductService {
 		}
 
 	public void deleteBook(long id) {
-		productRepository.delete(id);
+		productRepository.deleteById(id);
 
 	}
 }

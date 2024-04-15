@@ -73,9 +73,9 @@ public class CartController {
 	@PreAuthorize("hasRole('USER')")
 	@DeleteMapping("/{cartId}")
 	ResponseEntity<ResponseObject> deleteCart(@PathVariable Long cartId) {
-		boolean exits = repository.exists(cartId);
+		boolean exits = repository.existsById(cartId);
 		if (exits) {
-			repository.delete(cartId);
+			repository.deleteById(cartId);
 			return ResponseEntity.status(HttpStatus.OK)
 					.body(new ResponseObject("success", "delete data successfully", ""));
 		}

@@ -83,7 +83,7 @@ public class OrderDetailController {
 
 	@DeleteMapping("/{orderId}")
 	public ResponseEntity<ResponseObject> deleteOrderDetail(@PathVariable Long orderId) {
-		orderDetailRepository.delete(orderId);
+		orderDetailRepository.deleteById(orderId);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 }
